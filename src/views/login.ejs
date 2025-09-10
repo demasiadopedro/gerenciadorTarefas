@@ -11,6 +11,7 @@
                 Login
             </h1>
             <p class="text-center lead">suas tarefas estão abaixo</p>
+            <%- include('includes/messages'); %>
 
             <div class="row">
                 <div class="col-lg">
@@ -21,11 +22,11 @@
                             <input type="hidden" name="_csrf" value=<%=csrfToken%> >
                             <div>
                                 <label>Email</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="email" name="email" class="form-control" id="inputEmail4">
                             </div>
                             <div>
                                 <label>Password</label>
-                                <input type="password" class="form-control" id="inputPassword4">
+                                <input type="password" name="password" class="form-control" id="inputPassword4">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
