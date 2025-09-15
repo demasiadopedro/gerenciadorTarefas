@@ -1,52 +1,57 @@
-<%- include('includes/head'); %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('includes/head'); %>
+</head>
+<body>
+    <%- include('includes/navBar'); %>
 
-<%- include('includes/navBar'); %>
-<div class="container">
-    <div class="row">   
-        <div class="col-lg-2">
-
-        </div>  
-        <div class="col-lg-8 my-4">
-            <h1 class="display-1 text-center ">
-                Agenda
-            </h1>
-            <p class="text-center lead">suas tarefas estão abaixo</p>
-            <% include('includes/messages') %>
-
-            <div class="responsive-table ">
-                <table class="table my-3">
-                    <tr>
-                        <td>Neymar</td>
-                        <td>Jr.</td>
-                        <td>reidelas@juninho.com</td>
-                        <td>(11) 98134-3467</td>
-                    </tr>
-                    <tr>
-                        <td>Neymar</td>
-                        <td>Jr.</td>
-                        <td>reidelas@juninho.com</td>
-                        <td>(11) 98134-3467</td>
-                    </tr>
-                    <tr>
-                        <td>Neymar</td>
-                        <td>Jr.</td>
-                        <td>reidelas@juninho.com</td>
-                        <td>(11) 98134-3467</td>
-                    </tr>
-                    <tr>
-                        <td>Neymar</td>
-                        <td>Jr.</td>
-                        <td>reidelas@juninho.com</td>
-                        <td>(11) 98134-3467</td>
-                    </tr>
-                </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 my-4">
+                <h1 class="display-4 text-center mb-3">
+                    Contato
+                </h1>
+                <p class="text-center lead mb-4">Crie ou edite seus contatos</p>
+                
+                <!-- Área de mensagens -->
+                <%- include('includes/messages') %>
+                
+                <div class="cadastro">
+                    <form class="row g-3" action="/contato/register" method="POST">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                        
+                        <div class="col-md-6">
+                            <label class="form-label">Nome</label>
+                            <input type="text" name="nome" class="form-control" id="inputNome" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label">Sobrenome</label>
+                            <input type="text" name="sobrenome" class="form-control" id="inputLastName" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label class="form-label">Telefone</label>
+                            <input type="tel" name="telefone" class="form-control" id="inputFone" required>
+                        </div>
+                        
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Salvar Contato</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-        </div>
-        <div class="col-lg-2">
-            
+            <div class="col-lg-2"></div>
         </div>
     </div>
-</div>
 
-<%- include('includes/footer'); %>
+    <%- include('includes/footer'); %>
+</body>
+</html>
