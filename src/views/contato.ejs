@@ -19,27 +19,31 @@
                 <%- include('includes/messages') %>
                 
                 <div class="cadastro">
+                    <% if(contato._id){ %>
+                    <form class="row g-3" action="/contato/edit/<%= contato._id %>" method="POST">
+                    <% } else{%>
                     <form class="row g-3" action="/contato/register" method="POST">
+                    <% } %>    
                         <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                         
                         <div class="col-md-6">
                             <label class="form-label">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="inputNome" required>
+                            <input value="<%= contato.nome %>" type="text" name="nome" class="form-control" id="inputNome" required>
                         </div>
                         
                         <div class="col-md-6">
                             <label class="form-label">Sobrenome</label>
-                            <input type="text" name="sobrenome" class="form-control" id="inputLastName" required>
+                            <input value="<%= contato.sobrenome %>" type="text" name="sobrenome" class="form-control" id="inputLastName" >
                         </div>
                         
                         <div class="col-md-6">
                             <label class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail" required>
+                            <input value="<%= contato.email %>" type="email" name="email" class="form-control" id="inputEmail" >
                         </div>
                         
                         <div class="col-md-6">
                             <label class="form-label">Telefone</label>
-                            <input type="tel" name="telefone" class="form-control" id="inputFone" required>
+                            <input value="<%= contato.telefone %>" type="tel" name="telefone" class="form-control" id="inputFone" >
                         </div>
                         
                         <div class="col-12 text-center mt-4">
