@@ -57,14 +57,27 @@ class Contato {
     if(this.errors.length > 0) return;
     this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
   }
-
 // Remova a declaração estática original
   
 }
+
+// metodos estaticos
 Contato.buscaPorId = async function (id) {
   if(typeof id !== 'string') return;
-  const user = await ContatoModel.findById(id);
-  return user;
+  const comtato = await ContatoModel.findById(id);
+  return comtato;
+}
+Contato.delete = async function (id) {
+  if(typeof id !== 'string') return;
+  const comtato = await ContatoModel.findOneAndDelete({_id:id});
+  return comtato;
+}
+
+
+Contato.buscaContatos = async function () {
+  const comtatos = await ContatoModel.find()
+    .sort({criadoEm: 1})
+  return comtatos;
 }
 
 module.exports = Contato;
